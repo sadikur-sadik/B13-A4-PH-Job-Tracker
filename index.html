@@ -58,17 +58,17 @@
     <section id="rest" class="max-w-[1110px] mx-auto space-y-4 mt-16">
         <div id="rest-head" class="flex justify-between items-center">
             <h3 class="text-xl font-semibold">Available Jobs</h3>
-            <p class="text-gray-500 text-[16px]"><span id="job-count">8 </span>jobs</p>
+            <p class="text-gray-500 text-[16px]"><span id="job-count" class="mr-1">8 </span>jobs</p>
         </div>
         <div id="btns">
             <div id="rest-btns">
-                <button id="rest-btn-all" class="btn bg-white text-black hover:bg-blue-400 hover:text-white w-20 rounded h-8 border-none active:bg-blue-400 active:text-white">
+                <button onclick="buttonToggling('rest-btn-all')" id="rest-btn-all" class="btn w-20 rounded h-8 border-none">
                     All
                 </button>
-                <button id="rest-btn-interview" class="btn bg-white text-black hover:bg-blue-400 hover:text-white w-20 rounded h-8 border-none  active:bg-blue-400 active:text-white">
+                <button onclick="buttonToggling('rest-btn-interview')" id="rest-btn-interview" class="btn  w-20 rounded h-8 border-none ">
                     Interview
                 </button>
-                <button id="rest-btn-rejected" class="btn bg-white text-black hover:bg-blue-400 hover:text-white w-20 rounded h-8 border-none  active:bg-blue-400 active:text-white">
+                <button onclick="buttonToggling('rest-btn-rejected')" id="rest-btn-rejected" class="btn   w-20 rounded h-8 border-none">
                     Rejected
                 </button>
                 
@@ -77,214 +77,214 @@
 
 
         <section id="rest-card" class="space-y-4">
-            <div id="card-one" class="p-6 space-y-5 bg-white rounded">
+            <!-- <div id="card-one" class="p-6 space-y-5 bg-white rounded">
                 <div id="card-one-title" class="flex justify-between items-center">
                     <div>
-                        <h3 class="text-[18px] font-semibold">Mobile First Corp</h3>
-                        <p class="text-[#64748b] ">React Native Developer</p>
+                        <h3 class="title text-[18px] font-semibold">Mobile First Corp</h3>
+                        <p class="title-description text-[#64748b] ">React Native Developer</p>
                     </div>
-                    <button id="card-one-trash" class="bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
+                    <button id="card-one-trash" class="one-btn bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
                 </div>
 
                 <div id="card-one-details">
-                    <p class="text-[14px] text-[#64748b] ">Remote  •  Full-time  •  $130,000 - $175,000</p>
+                    <p class="job-info text-[14px] text-[#64748b] ">Remote  •  Full-time  •  $130,000 - $175,000</p>
                 </div>
 
                 <div id="card-one-status">
-                    <button id="two-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
-                    <p class="text-[#64748b] text-[14px]">
+                    <button id="two-current-status" class="status-update bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
+                    <p class="bio text-[#64748b] text-[14px]">
                         Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
                     </p>
                 </div>
                 <div id="card-one-btn">
-                    <button id="card-one-int" class="btn btn-outline btn-success">Interview</button>
-                    <button id="card-one-rej" class="btn btn-outline btn-error ">Rejected</button>
+                    <button id="card-one-int" class="btn-int btn btn-outline btn-success">Interview</button>
+                    <button id="card-one-rej" class="btn-del btn btn-outline btn-error ">Rejected</button>
                 </div>
             </div>
 
-                            <!-- Card TWo -->
+                            Card TWo
             <div id="card-two" class="p-6 space-y-5 bg-white rounded">
                 <div id="card-two-title" class="flex justify-between items-center">
                     <div>
-                        <h3 class="text-[18px] font-semibold">WebFlow Agency</h3>
-                        <p class="text-[#64748b] ">Web Designer & Developer</p>
+                        <h3 class="title text-[18px] font-semibold">WebFlow Agency</h3>
+                        <p class="title-description text-[#64748b] ">Web Designer & Developer</p>
                     </div>
                     <button id="card-two-trash" class="bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
                 </div>
 
                 <div id="card-two-details">
-                    <p class="text-[14px] text-[#64748b] ">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                    <p class="job-info text-[14px] text-[#64748b] ">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
                 </div>
 
                 <div id="card-two-status">
-                    <button id="two-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
-                    <p class="text-[#64748b] text-[14px]">
+                    <button id="status-update two-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
+                    <p class="bio text-[#64748b] text-[14px]">
                         Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.
                     </p>
                 </div>
                 <div id="card-two-btn">
-                    <button id="card-two-int" class="btn btn-outline btn-success">Interview</button>
-                    <button id="card-two-rej" class="btn btn-outline btn-error ">Rejected</button>
+                    <button id="card-two-int" class="btn-int btn btn-outline btn-success">Interview</button>
+                    <button id="card-two-rej" class="btn-rej btn btn-outline btn-error ">Rejected</button>
                 </div>
             </div>
 
-                            <!-- Card Three -->
+                            Card Three
 
             <div id="card-three" class="p-6 space-y-5 bg-white rounded">
                 <div id="card-three-title" class="flex justify-between items-center">
                     <div>
-                        <h3 class="text-[18px] font-semibold">DataViz Solutions</h3>
-                        <p class="text-[#64748b] ">Data Visualization Specialist</p>
+                        <h3 class="title text-[18px] font-semibold">DataViz Solutions</h3>
+                        <p class="title-description text-[#64748b] ">Data Visualization Specialist</p>
                     </div>
                     <button id="card-three-trash" class="bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
                 </div>
 
                 <div id="card-three-details">
-                    <p class="text-[14px] text-[#64748b] ">Boston, MA • Full-time • $125,000 - $165,000</p>
+                    <p class="job-info text-[14px] text-[#64748b] ">Boston, MA • Full-time • $125,000 - $165,000</p>
                 </div>
 
                 <div id="card-three-status">
-                    <button id="three-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
-                    <p class="text-[#64748b] text-[14px]">
+                    <button id="three-current-status" class="status-update  bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
+                    <p class="bio text-[#64748b] text-[14px]">
                         Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
                     </p>
                 </div>
                 <div id="card-three-btn">
-                    <button id="card-three-int" class="btn btn-outline btn-success">Interview</button>
-                    <button id="card-three-rej" class="btn btn-outline btn-error ">Rejected</button>
+                    <button id="card-three-int" class="btn-int btn btn-outline btn-success">Interview</button>
+                    <button id="card-three-rej" class="btn-rej btn btn-outline btn-error ">Rejected</button>
                 </div>
             </div>
-                            <!-- Card Four -->
+                            Card Four
 
             <div id="card-four" class="p-6 space-y-5 bg-white rounded">
                 <div id="card-four-title" class="flex justify-between items-center">
                     <div>
-                        <h3 class="text-[18px] font-semibold">CloudFirst Inc</h3>
-                        <p class="text-[#64748b] ">Backend Developer</p>
+                        <h3 class="title text-[18px] font-semibold">CloudFirst Inc</h3>
+                        <p class="title-description text-[#64748b] ">Backend Developer</p>
                     </div>
                     <button id="card-four-trash" class="bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
                 </div>
 
                 <div id="card-four-details">
-                    <p class="text-[14px] text-[#64748b] ">Seattle, WA • Full-time • $140,000 - $190,000</p>
+                    <p class="job-info text-[14px] text-[#64748b] ">Seattle, WA • Full-time • $140,000 - $190,000</p>
                 </div>
 
                 <div id="card-four-status">
-                    <button id="four-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
-                    <p class="text-[#64748b] text-[14px]">
+                    <button id="four-current-status" class="status-update  bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
+                    <p class="bio text-[#64748b] text-[14px]">
                         Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.
                     </p>
                 </div>
                 <div id="card-four-btn">
-                    <button id="card-four-int" class="btn btn-outline btn-success">Interview</button>
-                    <button id="card-four-rej" class="btn btn-outline btn-error ">Rejected</button>
+                    <button id="card-four-int" class="btn-int btn btn-outline btn-success">Interview</button>
+                    <button id="card-four-rej" class="btn-rej btn btn-outline btn-error ">Rejected</button>
                 </div>
             </div>
-                            <!-- Card Five-->
+                            Card Five
 
             <div id="card-five" class="p-6 space-y-5 bg-white rounded">
                 <div id="card-five-title" class="flex justify-between items-center">
                     <div>
-                        <h3 class="text-[18px] font-semibold">Innovation Labs</h3>
-                        <p class="text-[#64748b] ">UI/UX Engineer</p>
+                        <h3 class="title text-[18px] font-semibold">Innovation Labs</h3>
+                        <p class="title-description text-[#64748b] ">UI/UX Engineer</p>
                     </div>
                     <button id="card-five-trash" class="bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
                 </div>
 
                 <div id="card-five-details">
-                    <p class="text-[14px] text-[#64748b] ">Austin, TX • Full-time • $110,000 - $150,000</p>
+                    <p class="job-info text-[14px] text-[#64748b] ">Austin, TX • Full-time • $110,000 - $150,000</p>
                 </div>
 
                 <div id="card-five-status">
-                    <button id="five-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
-                    <p class="text-[#64748b] text-[14px]">
+                    <button id="five-current-status" class="status-update  bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
+                    <p class="bio text-[#64748b] text-[14px]">
                         Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.
                     </p>
                 </div>
                 <div id="card-five-btn">
-                    <button id="card-five-int" class="btn btn-outline btn-success">Interview</button>
-                    <button id="card-five-rej" class="btn btn-outline btn-error ">Rejected</button>
+                    <button id="card-five-int" class="btn-int btn btn-outline btn-success">Interview</button>
+                    <button id="card-five-rej" class="btn-rej btn btn-outline btn-error ">Rejected</button>
                 </div>
             </div>
-                            <!-- Card Six-->
+                            Card Six
 
             <div id="card-six" class="p-6 space-y-5 bg-white rounded">
                 <div id="card-six-title" class="flex justify-between items-center">
                     <div>
-                        <h3 class="text-[18px] font-semibold">MegaCorp Solutions</h3>
-                        <p class="text-[#64748b] ">JavaScript Developer</p>
+                        <h3 class="title text-[18px] font-semibold">MegaCorp Solutions</h3>
+                        <p class="title-description text-[#64748b] ">JavaScript Developer</p>
                     </div>
                     <button id="card-six-trash" class="bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
                 </div>
 
                 <div id="card-six-details">
-                    <p class="text-[14px] text-[#64748b] ">New York, NY • Full-time • $130,000 - $170,00</p>
+                    <p class="job-info text-[14px] text-[#64748b] ">New York, NY • Full-time • $130,000 - $170,00</p>
                 </div>
 
                 <div id="card-six-status">
-                    <button id="six-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
-                    <p class="text-[#64748b] text-[14px]">
+                    <button id="six-current-status" class="status-update  bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
+                    <p class="bio text-[#64748b] text-[14px]">
                         Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance,
                          and professional development opportunities.
                     </p>
                 </div>
                 <div id="card-six-btn">
-                    <button id="card-six-int" class="btn btn-outline btn-success">Interview</button>
-                    <button id="card-six-rej" class="btn btn-outline btn-error ">Rejected</button>
+                    <button id="card-six-int" class="btn-int btn btn-outline btn-success">Interview</button>
+                    <button id="card-six-rej" class="btn-rej btn btn-outline btn-error ">Rejected</button>
                 </div>
             </div>
-                            <!-- Card Seven-->
+                            Card Seven
 
             <div id="card-seven" class="p-6 space-y-5 bg-white rounded">
                 <div id="card-seven-title" class="flex justify-between items-center">
                     <div>
-                        <h3 class="text-[18px] font-semibold">StartupXYZ</h3>
-                        <p class="text-[#64748b] ">Full Stack Engineer</p>
+                        <h3 class="title text-[18px] font-semibold">StartupXYZ</h3>
+                        <p class="title-description text-[#64748b] ">Full Stack Engineer</p>
                     </div>
                     <button id="card-seven-trash" class="bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
                 </div>
 
                 <div id="card-seven-details">
-                    <p class="text-[14px] text-[#64748b] ">Remote • Full-time • $120,000 - $160,000</p>
+                    <p class="job-info text-[14px] text-[#64748b] ">Remote • Full-time • $120,000 - $160,000</p>
                 </div>
 
                 <div id="card-seven-status">
-                    <button id="seven-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
-                    <p class="text-[#64748b] text-[14px]">
+                    <button id="seven-current-status" class="status-update  bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
+                    <p class="bio text-[#64748b] text-[14px]">
                         Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.
                     </p>
                 </div>
                 <div id="card-seven-btn">
-                    <button id="card-seven-int" class="btn btn-outline btn-success">Interview</button>
-                    <button id="card-seven-rej" class="btn btn-outline btn-error ">Rejected</button>
+                    <button id="card-seven-int" class="btn-int btn btn-outline btn-success">Interview</button>
+                    <button id="card-seven-rej" class="btn-rej btn btn-outline btn-error ">Rejected</button>
                 </div>
             </div>
 
-                            <!-- Card_Eight -->
+                            Card_Eight
             <div id="card-eight" class="p-6 space-y-5 bg-white rounded">
                 <div id="card-eight-title" class="flex justify-between items-center">
                     <div>
-                        <h3 class="text-[18px] font-semibold">TechCorp Industries</h3>
-                        <p class="text-[#64748b] ">Senior Frontend Developer</p>
+                        <h3 class="title text-[18px] font-semibold">TechCorp Industries</h3>
+                        <p class="title-description text-[#64748b] ">Senior Frontend Developer</p>
                     </div>
                     <button id="card-eight-trash" class="bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" srcset=""></button>
                 </div>
 
                 <div id="card-eight-details">
-                    <p class="text-[14px] text-[#64748b] ">San Francisco, CA • Full-time • $130,000 - $175,000</p>
+                    <p class="job-info text-[14px] text-[#64748b] ">San Francisco, CA • Full-time • $130,000 - $175,000</p>
                 </div>
 
                 <div id="card-eight-status">
-                    <button id="eight-current-status" class="bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
-                    <p class="text-[#64748b] text-[14px]">
+                    <button id="eight-current-status" class="status-update  bg-[#eef4ffFF] py-2 px-3 rounded mb-2">Not Applied</button>
+                    <p class="bio text-[#64748b] text-[14px]">
                         We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.
                     </p>
                 </div>
                 <div id="card-eight-btn">
-                    <button id="card-eight-int" class="btn btn-outline btn-success">Interview</button>
-                    <button id="card-eight-rej" class="btn btn-outline btn-error ">Rejected</button>
+                    <button id="card-eight-int" class="btn-int btn btn-outline btn-success">Interview</button>
+                    <button id="card-eight-rej" class="btn-rej btn btn-outline btn-error ">Rejected</button>
                 </div>
-            </div>
+            </div> -->
         </section>
     </section>
 
@@ -301,7 +301,13 @@
         </div>
     </section>
 
-    
+    <!-- JS integretion -->
+
+    <script src="./Javascript/common.js"></script>
+    <script src="./Javascript/mainItems.js"></script>
+    <script src="./Javascript/machine.js"></script>
+    <script src="./Javascript/script.js"></script>
+   
     
 </body>
 </html>
