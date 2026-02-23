@@ -41,7 +41,9 @@ function generateHTML (){
    
 };
 document.getElementById('rest-card').innerHTML = htmlGeneration;
+trashButtonAll();
 // console.log(htmls)
+
 
 
 };
@@ -76,6 +78,7 @@ totalCounts();
     const allBtn = document.getElementById('rest-btn-all');
     const interviewBtn = document.getElementById('rest-btn-interview');
     const rejectedBtn = document.getElementById('rest-btn-rejected');
+    const currentCount = document.getElementById('current-count');
 
 function buttonToggling(id){
     
@@ -94,10 +97,12 @@ function buttonToggling(id){
             if(interview.length>0){
                 interviewEmptyContainer.classList.add('hidden');
                 filteredInterview.classList.remove('hidden');
+                currentCount.innerText = interview.length + ' of';
             }
             else{
                 filteredInterview.classList.add('hidden');
                 interviewEmptyContainer.classList.remove('hidden');
+                currentCount.innerText = '';
                 
             }
     }
@@ -109,10 +114,12 @@ function buttonToggling(id){
             if(rejection.length>0){
                 rejectionEmptyContainer.classList.add('hidden');
                 filteredRejected.classList.remove('hidden');
+                currentCount.innerText = rejection.length + ' of';
             }
             else{
                 filteredRejected.classList.add('hidden');
                 rejectionEmptyContainer.classList.remove('hidden');
+                currentCount.innerText = '';
                 
             }
 
@@ -123,6 +130,7 @@ function buttonToggling(id){
             interviewEmptyContainer.classList.add('hidden');
             filteredRejected.classList.add('hidden');
             rejectionEmptyContainer.classList.add('hidden');
+            currentCount.innerText = '';
 
     }
 
@@ -133,6 +141,8 @@ function buttonToggling(id){
 
           interviewEmptyContainer.classList.add('hidden');
           rejectionEmptyContainer.classList.add('hidden');
+          filteredInterview.classList.add('hidden');
+          filteredRejected.classList.add('hidden');
           document.getElementById('allBtnid').classList.add('hidden');
 
      if(interview.length === 0){
@@ -140,6 +150,7 @@ function buttonToggling(id){
         filteredInterview.classList.add('hidden');
         interviewEmptyContainer.classList.remove('hidden');
         rejectionEmptyContainer.classList.add('hidden');
+        document.getElementById('allBtnid').classList.add('hidden'); 
          } 
          else {
             filteredInterview.classList.remove('hidden');
@@ -149,6 +160,7 @@ function buttonToggling(id){
             filteredRejected.classList.add('hidden');
             rejectionEmptyContainer.classList.remove('hidden');
             interviewEmptyContainer.classList.add('hidden');
+            document.getElementById('allBtnid').classList.add('hidden'); 
              } 
         else { 
             filteredRejected.classList.remove('hidden');
@@ -263,6 +275,7 @@ function interviewBtnArray(){
             interview.push(matchedItems);
         }
         else{return};
+        
        
         let newRejection = rejection.filter(item => item.id !== matchedItems.id);
         rejection = newRejection;
@@ -273,7 +286,24 @@ function interviewBtnArray(){
         putRejected();
         totalCounts();
         trashButtonAll();
-       dataEmpty();
+        if(interview.length>0){
+                        interviewEmptyContainer.classList.add('hidden');
+                        
+                        filteredInterview.classList.remove('hidden');
+                        
+
+            if( allBtn.classList.contains('bg-blue-400' , 'text-white')){
+                currentCount.innerText = '';
+            }
+            else{currentCount.innerText = interview.length + ' of';}
+        }
+        else{
+                        interviewEmptyContainer.classList.remove('hidden');
+                        
+                        filteredInterview.classList.add('hidden');
+                        currentCount.innerText = '';
+        }
+        
         
     });
 
@@ -308,7 +338,7 @@ function rejectedBtnArray(){
         if(!exist){
             matchedItems.currentStatus = 'Rejected';
             rejection.push(matchedItems);
-        }
+        }else{return}
         
         let newInterview = interview.filter(item => item.id !== matchedItems.id);
         interview =newInterview;
@@ -319,7 +349,27 @@ function rejectedBtnArray(){
         putRejected();
         totalCounts();
         trashButtonAll();
-        dataEmpty();
+        if(rejection.length>0){
+          
+          rejectionEmptyContainer.classList.add('hidden');
+          
+          filteredRejected.classList.remove('hidden');
+          
+          if( allBtn.classList.contains('bg-blue-400' , 'text-white')){
+                currentCount.innerText = '';
+            }
+            else{
+                currentCount.innerText = rejection.length + ' of';
+            }
+          
+        }
+        else{
+          rejectionEmptyContainer.classList.remove('hidden');
+          
+          filteredRejected.classList.add('hidden');    
+
+          currentCount.innerText = '';      
+        }
         
         
     });
@@ -372,12 +422,13 @@ function putInterview(){
    `;
     filteredInterview.appendChild(div);
     }
-     
+    
     interviewBtnArray();
     rejectedBtnArray();
     trashButtonAll();
+    
    
-}
+};
 function putRejected(){
     filteredRejected.innerHTML = '';
 
@@ -412,9 +463,11 @@ function putRejected(){
    `;
     filteredRejected.appendChild(div);
     }
+     
      interviewBtnArray();
      rejectedBtnArray();
      trashButtonAll();
+    
 };
             putInterview();
             putRejected();
