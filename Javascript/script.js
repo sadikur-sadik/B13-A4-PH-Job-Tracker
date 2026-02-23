@@ -128,11 +128,109 @@ function buttonToggling(id){
 
    
 };
+// update 
+ function dataEmpty(){
 
-// interview and rejection button 
+          interviewEmptyContainer.classList.add('hidden');
+          rejectionEmptyContainer.classList.add('hidden');
+          document.getElementById('allBtnid').classList.add('hidden');
+
+     if(interview.length === 0){
+
+        filteredInterview.classList.add('hidden');
+        interviewEmptyContainer.classList.remove('hidden');
+        rejectionEmptyContainer.classList.add('hidden');
+         } 
+         else {
+            filteredInterview.classList.remove('hidden');
+            interviewEmptyContainer.classList.add('hidden');
+             } 
+        if(rejection.length === 0){
+            filteredRejected.classList.add('hidden');
+            rejectionEmptyContainer.classList.remove('hidden');
+            interviewEmptyContainer.classList.add('hidden');
+             } 
+        else { 
+            filteredRejected.classList.remove('hidden');
+            rejectionEmptyContainer.classList.add('hidden'); 
+            } 
+        if(items.length === 0){
+            mainContainer.classList.add('hidden');
+            document.getElementById('allBtnid').classList.remove('hidden');
+            interviewEmptyContainer.classList.add('hidden');
+            rejectionEmptyContainer.classList.add('hidden') 
+        } 
+        else {
+             document.getElementById('allBtnid').classList.add('hidden'); 
+            } 
+        }
+//trash button
 
 
-
+function trashButtonAll(){
+     const trashBtn = document.querySelectorAll('.btn-remove'); 
+     for(const btn of trashBtn){ 
+        btn.addEventListener('click',function(){
+             
+            let matchedItems = '';
+               
+              for(const item of items){ 
+                
+                if(btn.dataset.trash === item.id){
+                    
+                    matchedItems = item; };
+                    
+                };
+                     
+                let newItems = items.filter(item => item.id !== matchedItems.id); 
+                     
+                items = newItems; 
+                     
+                let matchedInterview = '';
+                       
+                for(const item of interview){ 
+                       
+                    if(btn.dataset.trash === item.id){
+                             
+                        matchedInterview = item;
+                     }; 
+                    };
+                              
+                    let newInterview = interview.filter(item => item.id !== matchedInterview.id);
+                              
+                    interview = newInterview;
+                                
+                    let matchedRejected = '';
+                                
+                    for(const item of rejection){ 
+                        if(btn.dataset.trash === item.id){ 
+                                        
+                            matchedRejected = item; 
+                        }; 
+                                    
+                    };
+                                         
+                    let newRejected= rejection.filter(item => item.id !== matchedRejected);
+                                          
+                    rejection = newRejected;
+                                          
+                                          
+                                          
+                    generateHTML();
+                                          
+                    putInterview();
+                                           
+                    putRejected(); 
+                                            
+                    totalCounts();
+                    trashButtonAll()
+                                        
+                })
+             } 
+            
+            
+            }; 
+trashButtonAll();
 
 
 // interview 
@@ -148,7 +246,10 @@ function interviewBtnArray(){
         for(const item of items){
 
             if(btn.dataset.interview === item.id){
-                
+             const impChange =document.getElementById(item.id);
+             impChange.innerText ='Interview';
+             impChange.classList.remove('btn', 'bg-red-200', 'text-red-600');
+             impChange.classList.add('btn', 'bg-green-200', 'text-green-600')
              matchedItems = item;
              
             }
@@ -156,10 +257,12 @@ function interviewBtnArray(){
         };
 
         let exist = interview.find(item => item.id === matchedItems.id);
-
+        
         if(!exist){
+            matchedItems.currentStatus = 'Interview';
             interview.push(matchedItems);
-        };
+        }
+        else{return};
        
         let newRejection = rejection.filter(item => item.id !== matchedItems.id);
         rejection = newRejection;
@@ -169,10 +272,8 @@ function interviewBtnArray(){
         putInterview();
         putRejected();
         totalCounts();
-        if(rejection.length=== 0){
-            filteredRejected.classList.add('hidden');
-            rejectionEmptyContainer.classList.remove('hidden');
-        }
+        trashButtonAll();
+       dataEmpty();
         
     });
 
@@ -192,8 +293,11 @@ function rejectedBtnArray(){
         for(const item of items){
 
             if(btn.dataset.rejected=== item.id){
-                
-             matchedItems = item;
+                const impChange =document.getElementById(item.id);
+                impChange.innerText ='Rejected';
+                impChange.classList.remove('btn', 'bg-green-200', 'text-green-600');
+                impChange.classList.add('btn', 'bg-red-200', 'text-red-600');
+                 matchedItems = item;
              
             }
             
@@ -202,8 +306,10 @@ function rejectedBtnArray(){
         let exist = rejection.find(item => item.id === matchedItems.id);
 
         if(!exist){
+            matchedItems.currentStatus = 'Rejected';
             rejection.push(matchedItems);
         }
+        
         let newInterview = interview.filter(item => item.id !== matchedItems.id);
         interview =newInterview;
 
@@ -212,10 +318,8 @@ function rejectedBtnArray(){
         putInterview();
         putRejected();
         totalCounts();
-        if(interview.length=== 0){
-            filteredRejected.classList.add('hidden');
-            rejectionEmptyContainer.classList.remove('hidden');
-        }
+        trashButtonAll();
+        dataEmpty();
         
         
     });
@@ -255,7 +359,7 @@ function putInterview(){
                 </div>
 
                 <div id="card-${item.id}-status">
-                    <button id="${item.id}" class="status-update bg-[#eef4ffFF] py-2 px-3 rounded mb-2">${item.currentStatus}</button>
+                    <button id="${item.id}"  class="status-update btn bg-green-200 text-green-600 py-2 px-3 rounded mb-2">${item.currentStatus}</button>
                     <p class="bio text-[#64748b] text-[14px]">
                         ${item.bio}
                     </p>
@@ -271,6 +375,7 @@ function putInterview(){
      
     interviewBtnArray();
     rejectedBtnArray();
+    trashButtonAll();
    
 }
 function putRejected(){
@@ -294,7 +399,7 @@ function putRejected(){
                 </div>
 
                 <div id="card-${item.id}-status">
-                    <button id="${item.id}" class="status-update bg-[#eef4ffFF] py-2 px-3 rounded mb-2">${item.currentStatus}</button>
+                    <button id="${item.id}" class="status-update btn bg-red-200 text-red-600 py-2 px-3 rounded mb-2">${item.currentStatus}</button>
                     <p class="bio text-[#64748b] text-[14px]">
                         ${item.bio}
                     </p>
@@ -309,6 +414,7 @@ function putRejected(){
     }
      interviewBtnArray();
      rejectedBtnArray();
+     trashButtonAll();
 };
             putInterview();
             putRejected();
