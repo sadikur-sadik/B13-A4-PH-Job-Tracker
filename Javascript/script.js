@@ -165,10 +165,14 @@ function interviewBtnArray(){
         rejection = newRejection;
 
        
-        totalCounts();
+        
         putInterview();
         putRejected();
-       
+        totalCounts();
+        if(rejection.length=== 0){
+            filteredRejected.classList.add('hidden');
+            rejectionEmptyContainer.classList.remove('hidden');
+        }
         
     });
 
@@ -204,9 +208,14 @@ function rejectedBtnArray(){
         interview =newInterview;
 
        
-        totalCounts();
+        
         putInterview();
         putRejected();
+        totalCounts();
+        if(interview.length=== 0){
+            filteredRejected.classList.add('hidden');
+            rejectionEmptyContainer.classList.remove('hidden');
+        }
         
         
     });
