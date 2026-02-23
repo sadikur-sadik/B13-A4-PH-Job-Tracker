@@ -62,13 +62,15 @@
         </div>
         <div id="btns">
             <div id="rest-btns">
-                <button id="rest-btn-all" class="bg-blue-400 text-white btn w-20 rounded h-8 border-none">
+                <button onclick="buttonToggling('rest-btn-all')" id="rest-btn-all" class="bg-blue-400 text-white btn w-20 rounded h-8 border-none">
                     All
                 </button>
-                <button id="rest-btn-interview" class="btn  w-20 rounded h-8 border-none ">
+                <button onclick="buttonToggling('rest-btn-interview');
+            allBtn.classList.remove('bg-blue-400' , 'text-white')" id="rest-btn-interview" class="btn  w-20 rounded h-8 border-none ">
                     Interview
                 </button>
-                <button id="rest-btn-rejected" class="btn   w-20 rounded h-8 border-none">
+                <button onclick=" buttonToggling('rest-btn-rejected');
+        allBtn.classList.remove('bg-blue-400' , 'text-white');" id="rest-btn-rejected" class="btn   w-20 rounded h-8 border-none">
                     Rejected
                 </button>
                 
@@ -309,6 +311,12 @@
         </div>
     </section>
 
+    <section id="filtered-interview" class="hidden max-w-[1110px] mx-auto mt-4">
+
+    </section>
+    <section id="filtered-rejected" class="hidden max-w-[1110px] mx-auto mt-4">
+
+    </section>
     <!-- JS integretion -->
 
     <script src="./Javascript/common.js"></script>
@@ -319,3 +327,5 @@
     
 </body>
 </html>
+
+    
