@@ -1,10 +1,3 @@
-// function importantHTML(item){
-//     htmls = 
-
-//    return htmls;
-// }
-
-
 function generateHTML (){
     let htmlGeneration = '' ;
    
@@ -18,7 +11,7 @@ function generateHTML (){
                         <h3 class="title text-[18px] font-semibold">${item.title}</h3>
                         <p class="title-description text-[#64748b] ">${item.description}</p>
                     </div>
-                    <button id="card-${item.id}-trash" data-trash="${item.id}" class="btn-remove btn bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" ></button>
+                    <button id="card-${item.id}-trash" data-trash="${item.id}" class="btn-remove btn bg-white border border-gray-200 h-[40px] w-[40px] rounded-full p-2"><img src="./assets/trash.png" alt="" ></button>
                 </div>
 
                 <div id="card-${item.id}-details">
@@ -42,7 +35,7 @@ function generateHTML (){
 };
 document.getElementById('rest-card').innerHTML = htmlGeneration;
 trashButtonAll();
-// console.log(htmls)
+
 
 
 
@@ -97,7 +90,7 @@ function buttonToggling(id){
             if(interview.length>0){
                 interviewEmptyContainer.classList.add('hidden');
                 filteredInterview.classList.remove('hidden');
-                currentCount.innerText = interview.length + ' of';
+                currentCount.innerText = interview.length + ' of ';
             }
             else{
                 filteredInterview.classList.add('hidden');
@@ -114,7 +107,7 @@ function buttonToggling(id){
             if(rejection.length>0){
                 rejectionEmptyContainer.classList.add('hidden');
                 filteredRejected.classList.remove('hidden');
-                currentCount.innerText = rejection.length + ' of';
+                currentCount.innerText = rejection.length + ' of ';
             }
             else{
                 filteredRejected.classList.add('hidden');
@@ -136,7 +129,11 @@ function buttonToggling(id){
 
    
 };
-// update 
+
+
+// update Empty Notes
+
+
  function dataEmpty(){
         if(allBtn.classList.contains('bg-blue-400' , 'text-white'))
             {if(items.length<1){
@@ -170,7 +167,7 @@ function buttonToggling(id){
                              
             }
             else{
-                currentCount.innerText = rejection.length + ' of';
+                currentCount.innerText = rejection.length + ' of ';
                 document.querySelector('#allBtnid').classList.add('hidden');
                 mainContainer.classList.add('hidden');
                 filteredInterview.classList.add('hidden');
@@ -193,7 +190,7 @@ function buttonToggling(id){
                              
             }
             else{
-                currentCount.innerText = interview.length + ' of';
+                currentCount.innerText = interview.length + ' of ';
                 document.querySelector('#allBtnid').classList.add('hidden');
                 mainContainer.classList.add('hidden');
                 filteredInterview.classList.remove('hidden');
@@ -205,7 +202,9 @@ function buttonToggling(id){
         }
 
 
-        }
+        };
+
+
 //trash button
 
 
@@ -331,6 +330,7 @@ function interviewBtnArray(){
 };
 
 // rejection
+
 function rejectedBtnArray(){
     const cardRejected = document.querySelectorAll('.btn-rej');
     for(const btn of cardRejected){
@@ -381,11 +381,11 @@ rejectedBtnArray();
 
 
 
-// 3buttonfunction
+// Putting html into the page of rejection and Interview section
 
   
 
-
+    // interviewHTML
 
 function putInterview(){
     filteredInterview.innerHTML = '';
@@ -401,7 +401,7 @@ function putInterview(){
                         <h3 class="title text-[18px] font-semibold">${item.title}</h3>
                         <p class="title-description text-[#64748b] ">${item.description}</p>
                     </div>
-                    <button id="card-${item.id}-trash" data-trash="${item.id}" class="btn-remove btn bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" ></button>
+                    <button id="card-${item.id}-trash" data-trash="${item.id}" class="btn-remove btn bg-white border border-gray-200 h-[40px] w-[40px] rounded-full p-2"><img src="./assets/trash.png" alt="" ></button>
                 </div>
 
                 <div id="card-${item.id}-details">
@@ -429,6 +429,9 @@ function putInterview(){
     
    
 };
+
+//  RejectionHTML
+
 function putRejected(){
     filteredRejected.innerHTML = '';
 
@@ -442,7 +445,7 @@ function putRejected(){
                         <h3 class="title text-[18px] font-semibold">${item.title}</h3>
                         <p class="title-description text-[#64748b] ">${item.description}</p>
                     </div>
-                    <button id="card-${item.id}-trash" data-trash="${item.id}" class="btn-remove btn bg-white border border-gray-200 rounded-full p-2"><img src="./assets/trash.png" alt="" ></button>
+                    <button id="card-${item.id}-trash" data-trash="${item.id}" class="btn-remove btn bg-white border border-gray-200 h-[40px] w-[40px] rounded-full p-2"><img src="./assets/trash.png" alt="" ></button>
                 </div>
 
                 <div id="card-${item.id}-details">
