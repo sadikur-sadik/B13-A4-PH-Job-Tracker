@@ -95,7 +95,7 @@ function buttonToggling(id){
             else{
                 filteredInterview.classList.add('hidden');
                 interviewEmptyContainer.classList.remove('hidden');
-                currentCount.innerText = '';
+                currentCount.innerText = 0 + ' of ';
                 
             }
     }
@@ -112,7 +112,7 @@ function buttonToggling(id){
             else{
                 filteredRejected.classList.add('hidden');
                 rejectionEmptyContainer.classList.remove('hidden');
-                currentCount.innerText = '';
+                currentCount.innerText = 0 + ' of ';
                 
             }
 
@@ -162,7 +162,7 @@ function buttonToggling(id){
                 interviewEmptyContainer.classList.add('hidden');
                 filteredRejected.classList.add('hidden');
                 rejectionEmptyContainer.classList.remove('hidden');
-                currentCount.innerText = '';
+                currentCount.innerText = 0 + ' of ';
                 
                              
             }
@@ -185,7 +185,7 @@ function buttonToggling(id){
                 interviewEmptyContainer.classList.remove('hidden');
                 filteredRejected.classList.add('hidden');
                 rejectionEmptyContainer.classList.add('hidden');
-                currentCount.innerText = '';
+                currentCount.innerText = 0 + ' of ';
                 
                              
             }
